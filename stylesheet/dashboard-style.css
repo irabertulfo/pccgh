@@ -1,3 +1,5 @@
+/* General styles */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #B2C7D1;
@@ -166,25 +168,42 @@ body {
     width: 100%; /* Make form elements full width */
 }
 
-#form-modal {
+#dialog-box {
+    /* Original styles */
+    display: none; 
+    position: absolute; 
     z-index: 2;
-}
-
-/* CSS for the patient form modal */
-#form-modal .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto; 
-    padding: 20px;
-    border: 1px solid #888;
+    left: 38%; 
+    top: 60%;
+    transform: translate(-50%, -50%);
     width: 80%; 
     max-width: 400px; 
     border-radius: 10px;
 }
 
+#form-modal {
+    display: none; 
+    position: absolute; 
+    z-index: 2;
+    left: calc(38% + 400px); /* Adjust as needed */
+    top: 60%;
+    transform: translate(-50%, -50%);
+    width: 80%; 
+    max-width: 400px; 
+    border-radius: 10px;
+}
+
+
+#form-modal .modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+}
+
 #form-modal input[type="text"],
 #form-modal input[type="email"],
 #form-modal button {
-    width: 80%; 
+    width: calc(100% - 20px); /* Adjust as needed */
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;

@@ -42,44 +42,40 @@
                         <span class="patient-id">Patient ID 1</span>
                         <button class="view-button" onclick="showDetails('Patient Name 1', 'Patient ID 1')">View</button>
                     </li>
-                    <!-- Add more patient list items as needed -->
+                    <!-- Add more patient list items -->
                 </ul>
             </div>            
         </div>
     </div>
 
-     <!-- HTML structure for the dialogue box -->
+     <!-- Dialogue box -->
      <div id="dialog-box" class="modal">
         <div class="modal-content">
             <span class="close" onclick="hideDetails()">&times;</span>
             <h2 id="modal-patient-name"></h2>
             <div class="patient-details">
-                <p><strong>Patient ID:</strong> <span id="modal-patient-id"></span></p>
-                <p><strong>Address:</strong> <span id="modal-patient-address"></span></p>
-                <p><strong>Email:</strong> <span id="modal-patient-email"></span></p>
-                <p><strong>Contact Number:</strong> <span id="modal-patient-contact"></span></p>
-                <!-- Add more patient details as needed -->
+                <p><strong>Patient ID:</strong> <span id="modal-patient-id"></span></p>            
+                <!-- Add more patient details -->
             </div>
             <button onclick="showFormModal()">Generate ID</button>
         </div>
     </div>
-
-    <!-- Modal content for patient form -->
-    <div id="form-modal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="hideFormModal()">&times;</span>
-            <h2>Patient Form</h2>
-            <form id="patient-form">
-                <!-- Add form fields here (e.g., input fields for name, address, email, contact number) -->
-                <input type="text" placeholder="Name" name="name">
-                <input type="text" placeholder="Address" name="address">
-                <input type="email" placeholder="Email" name="email">
-                <input type="text" placeholder="Contact Number" name="contact">
-                <!-- Add more form fields as needed -->
-                <button type="button" onclick="generateID()">Generate ID</button>
-            </form>
-        </div>
+<!-- Modal content for Patient form -->
+<div id="form-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="hideFormModal()">&times;</span>
+        <h2>Patient Form</h2>
+        <form id="patient-form" class="draggable">
+            <!-- Add form fields here -->
+            <input type="text" placeholder="Name" name="name">
+            <input type="text" placeholder="Address" name="address">
+            <input type="email" placeholder="Email" name="email">
+            <input type="text" placeholder="Contact Number" name="contact">
+            <!-- Add more form fields -->
+            <button type="button" onclick="generateID()">Generate ID</button> <!-- Ensure type="button" to prevent form submission -->
+        </form>
     </div>
+</div>
 
     <script src="script/dashboard-script.js"></script>
 </body>

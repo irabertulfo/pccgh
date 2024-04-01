@@ -28,43 +28,15 @@ function hideDetails() {
     dialogBox.style.display = "none";
 }
 
-// JavaScript for draggable patient form modal
-var formModal = document.getElementById('form-modal');
-var formModalContent = document.querySelector('#form-modal .modal-content');
-
-var isDraggingForm = false;
-var formPosX = 0;
-var formPosY = 0;
-
-// Function to handle mouse down event for the form modal
-function dragFormMouseDown(e) {
-    e.preventDefault();
-    formPosX = e.clientX;
-    formPosY = e.clientY;
-    isDraggingForm = true;
-    document.addEventListener('mousemove', formElementDrag);
-    document.addEventListener('mouseup', closeFormDragElement);
+function generateID() {
+    var name = document.getElementById("patient-form").elements["name"].value;
+    var address = document.getElementById("patient-form").elements["address"].value;
+    var email = document.getElementById("patient-form").elements["email"].value;
+    var contact = document.getElementById("patient-form").elements["contact"].value;
+    
+    // Log values
+    console.log("Patient Name: " + name);
+    console.log("Address: " + address);
+    console.log("Email: " + email);
+    console.log("Contact Number: " + contact);
 }
-
-// Function to handle dragging for the form modal
-function formElementDrag(e) {
-    e.preventDefault();
-    if (isDraggingForm) {
-        var deltaX = formPosX - e.clientX;
-        var deltaY = formPosY - e.clientY;
-        formPosX = e.clientX;
-        formPosY = e.clientY;
-        formModal.style.top = (formModal.offsetTop - deltaY) + 'px';
-        formModal.style.left = (formModal.offsetLeft - deltaX) + 'px';
-    }
-}
-
-// Function to handle mouse up event for the form modal
-function closeFormDragElement() {
-    isDraggingForm = false;
-    document.removeEventListener('mousemove', formElementDrag);
-    document.removeEventListener('mouseup', closeFormDragElement);
-}
-
-// Attach event listener for mouse down event on form modal content
-formModalContent.addEventListener('mousedown', dragFormMouseDown);
