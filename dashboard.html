@@ -6,6 +6,7 @@
     <title>Dashboard</title>
     <link rel="stylesheet" href="stylesheet/dashboard-style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -57,7 +58,7 @@
                 <p><strong>Patient ID:</strong> <span id="modal-patient-id"></span></p>            
                 <!-- Add more patient details -->
             </div>
-            <button onclick="showFormModal()">Generate ID</button>
+            <button onclick="showFormModal()">Create ID</button>
         </div>
     </div>
 <!-- Modal content for Patient form -->
@@ -72,11 +73,23 @@
             <input type="email" placeholder="Email" name="email">
             <input type="text" placeholder="Contact Number" name="contact">
             <!-- Add more form fields -->
-            <button type="button" onclick="generateID()">Generate ID</button> <!-- Ensure type="button" to prevent form submission -->
+            <button type="button" onclick="generateIDAndShowSetupModal()">Proceed</button> <!-- Ensure type="button" to prevent form submission -->
         </form>
     </div>
 </div>
 
-    <script src="script/dashboard-script.js"></script>
+<!-- Modal for ID setup -->
+<div id="id-setup-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="hideIDSetupModal()">&times;</span>
+        <h2>ID Setup</h2>
+        <div id="id-setup-details">
+            <!-- Display patient details here -->
+        </div>
+        <button onclick="generatePDF()">Generate ID</button>
+    </div>
+</div>
+
+<script src="script/dashboard-script.js"></script>
 </body>
 </html>
